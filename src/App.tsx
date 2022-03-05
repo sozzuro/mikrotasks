@@ -4,6 +4,9 @@ import Header from "./hw/hw1/Header";
 import Footer from "./hw/hw1/Footer";
 import NewComponent from "./hw/hw2/NewComponent";
 import Button from "./hw/hw3/Button";
+import FilterComponent from "./hw/hw5/FilterComponent";
+
+export type FilterType = 'all' | 'dollar' | 'ruble';
 
 function App() {
 
@@ -51,6 +54,32 @@ function App() {
         console.log(a);
     }
 
+    const [money, setMoney] = useState([
+        {banknots: 'Dollars', value: 100, number: ' a1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' z1234567890'},
+        {banknots: 'RUBLS', value: 100, number: ' w1234567890'},
+        {banknots: 'Dollars', value: 100, number: ' e1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' c1234567890'},
+        {banknots: 'RUBLS', value: 100, number: ' r1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' x1234567890'},
+        {banknots: 'RUBLS', value: 50, number: ' v1234567890'},
+    ])
+
+    const [filter, setFilter] = useState('all');
+
+    let currentMoney = money;
+
+    if (filter === 'dollar') {
+        currentMoney = money.filter((el) => el.banknots === 'Dollars')
+    }
+    if (filter === 'ruble') {
+        currentMoney = money.filter((el) => el.banknots === 'RUBLS')
+    }
+
+    const onClickFilterHandler = (nameButton: FilterType) => {
+        setFilter(nameButton);
+    }
+
     return (
         <div>
             {/*FIRST TASK*/}
@@ -67,9 +96,12 @@ function App() {
             {/*<Button name={'stupid button'} callback={Button3foo}/>*/}
 
             {/*Fourth TASK*/}
-            <h1>{a}</h1>
-            <button onClick={onClickHandler}>number</button>
-            <button onClick={onClickHandlerZero}>0</button>
+            {/*<h1>{a}</h1>*/}
+            {/*<button onClick={onClickHandler}>number</button>*/}
+            {/*<button onClick={onClickHandlerZero}>0</button>*/}
+
+            {/*Fifth TASK*/}
+            <FilterComponent currentMoney={currentMoney} onClickFilterHandler={onClickFilterHandler}/>
         </div>
     );
 }
