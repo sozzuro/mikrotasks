@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Body from './hw/hw1/Body';
 import Header from "./hw/hw1/Header";
 import Footer from "./hw/hw1/Footer";
@@ -39,6 +39,18 @@ function App() {
         console.log('Im stupid button');
     }
 
+    let [a, setA] = useState(1);
+
+    const onClickHandler = () => {
+        setA(++a);
+        console.log(a);
+    }
+
+    const onClickHandlerZero = () => {
+        setA(0);
+        console.log(a);
+    }
+
     return (
         <div>
             {/*FIRST TASK*/}
@@ -50,9 +62,14 @@ function App() {
             {/*<NewComponent students={students} topCars={topCars}/>*/}
 
             {/*THIRD TASK*/}
-            <Button name={'MyYouTubeChanel-1'} callback={() => Button1foo('Im Vasya', 21, 'Live in Minsk')}/>
-            <Button name={'MyYouTubeChanel-2'} callback={() => Button2foo('Im Vanya')}/>
-            <Button name={'stupid button'} callback={Button3foo}/>
+            {/*<Button name={'MyYouTubeChanel-1'} callback={() => Button1foo('Im Vasya', 21, 'Live in Minsk')}/>*/}
+            {/*<Button name={'MyYouTubeChanel-2'} callback={() => Button2foo('Im Vanya')}/>*/}
+            {/*<Button name={'stupid button'} callback={Button3foo}/>*/}
+
+            {/*Fourth TASK*/}
+            <h1>{a}</h1>
+            <button onClick={onClickHandler}>number</button>
+            <button onClick={onClickHandlerZero}>0</button>
         </div>
     );
 }
