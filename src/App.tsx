@@ -3,6 +3,7 @@ import Body from './hw/hw1/Body';
 import Header from "./hw/hw1/Header";
 import Footer from "./hw/hw1/Footer";
 import NewComponent from "./hw/hw2/NewComponent";
+import Button from "./hw/hw3/Button";
 
 function App() {
 
@@ -26,13 +27,32 @@ function App() {
         {manufacturer: 'Audi', model: 'rs6'}
     ]
 
+    const Button1foo = (subscriber: string, age: number, address: string) => {
+        console.log(subscriber, age, address);
+    }
+
+    const Button2foo = (subscriber: string) => {
+        console.log(subscriber);
+    }
+
+    const Button3foo = () => {
+        console.log('Im stupid button');
+    }
+
     return (
         <div>
+            {/*FIRST TASK*/}
             {/*<Header title={'NEW HEADER'}/>*/}
             {/*<Body titleForBody={'NEW BODY'}/>*/}
             {/*<Footer titleForFooter={'NEW FOOTER'}/>*/}
 
-            <NewComponent students={students} topCars={topCars}/>
+            {/*SECOND TASK*/}
+            {/*<NewComponent students={students} topCars={topCars}/>*/}
+
+            {/*THIRD TASK*/}
+            <Button name={'MyYouTubeChanel-1'} callback={() => Button1foo('Im Vasya', 21, 'Live in Minsk')}/>
+            <Button name={'MyYouTubeChanel-2'} callback={() => Button2foo('Im Vanya')}/>
+            <Button name={'stupid button'} callback={Button3foo}/>
         </div>
     );
 }
