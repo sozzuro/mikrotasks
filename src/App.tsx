@@ -101,7 +101,9 @@ function App() {
             {/*<button onClick={onClickHandlerZero}>0</button>*/}
 
             {/*Fifth TASK*/}
-            <FilterComponent currentMoney={currentMoney} onClickFilterHandler={onClickFilterHandler}/>
+            {/*<FilterComponent currentMoney={currentMoney} onClickFilterHandler={onClickFilterHandler}/>*/}
+
+            {/*Sixth TASK*/}
         </div>
     );
 }
